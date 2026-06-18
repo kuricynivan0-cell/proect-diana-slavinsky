@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Эпидемия или диагноз? — лонгрид о самокатах</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <!-- GitHub Pages: base ДОЛЖЕН быть первым, иначе CSS/картинки 404 -->
   <script>
     (function () {
       var p = location.pathname;
-      if (p.endsWith('index.html')) p = p.slice(0, -10);
-      if (!p.endsWith('/')) p = p.slice(0, p.lastIndexOf('/') + 1);
-      var b = document.createElement('base');
-      b.href = p || './';
-      document.head.appendChild(b);
+      if (p.indexOf('index.html') !== -1) {
+        p = p.substring(0, p.lastIndexOf('/') + 1);
+      } else if (!p.endsWith('/')) {
+        p = p + '/';
+      }
+      document.write('<base href="' + p + '">');
     })();
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <div class="noise"></div>
@@ -42,7 +44,7 @@
   <section class="cover" id="hero">
     <div class="scooter-trail"></div>
     <figure class="cover-media">
-      <img src="./images/cover-scooters.jpg" alt="Кикшеринговые самокаты на тротуаре" loading="eager" />
+      <img src="images/cover-scooters.jpg" alt="Кикшеринговые самокаты на тротуаре" loading="eager" />
       <figcaption>Фото автора</figcaption>
     </figure>
     <div class="cover-text">
@@ -151,7 +153,7 @@
 
       <article class="interview">
         <figure class="interview-photo">
-          <img src="./images/hospital.png" alt="Коридор больницы" loading="lazy" />
+          <img src="images/hospital.png" alt="Коридор больницы" loading="lazy" />
         </figure>
         <div class="interview-text">
           <span class="interview-label">Голос системы</span>
@@ -165,7 +167,7 @@
 
       <article class="interview interview-reverse">
         <figure class="interview-photo">
-          <img src="./images/courier.jpg" alt="Курьер на самокате" loading="lazy" />
+          <img src="images/courier.jpg" alt="Курьер на самокате" loading="lazy" />
         </figure>
         <div class="interview-text">
           <span class="interview-label">Голос алгоритма</span>
@@ -179,7 +181,7 @@
 
       <article class="interview">
         <figure class="interview-photo">
-          <img src="./images/pensioner.png" alt="Пожилая женщина на скамейке" loading="lazy" />
+          <img src="images/pensioner.png" alt="Пожилая женщина на скамейке" loading="lazy" />
         </figure>
         <div class="interview-text">
           <span class="interview-label">Голос уязвимости</span>
@@ -267,7 +269,7 @@
       </div>
 
       <figure class="figure-wide">
-        <img src="./images/park.jpg" alt="Парк с людьми на скамейках" loading="lazy" />
+        <img src="images/park.jpg" alt="Парк с людьми на скамейках" loading="lazy" />
         <figcaption>Там, где город разделил потоки, парк снова стал парком</figcaption>
       </figure>
     </section>
@@ -290,7 +292,7 @@
           <button class="hotspot" style="--x:82%;--y:22%" data-spot="metro">🚇</button>
         </div>
         <div class="spot-detail" id="spotDetail">
-          <img src="./images/bus-stop.jpg" alt="" id="spotImg" />
+          <img src="images/bus-stop.jpg" alt="" id="spotImg" />
           <div class="spot-detail-text">
             <h4 id="spotTitle">Узкий тротуар у остановки</h4>
             <p id="spotDesc">Пешеходы выходят из автобуса — самокат в 10 см. В Копенгагене здесь была бы велополоса между остановкой и дорогой.</p>
@@ -300,11 +302,11 @@
       </div>
 
       <div class="spots-thumbs">
-        <button class="spot-thumb active" data-spot="stop"><img src="./images/bus-stop.jpg" alt="" /><span>Остановка</span></button>
-        <button class="spot-thumb" data-spot="crossing"><img src="./images/crossing.png" alt="" /><span>Переход</span></button>
-        <button class="spot-thumb" data-spot="park"><img src="./images/park.jpg" alt="" /><span>Парк</span></button>
-        <button class="spot-thumb" data-spot="yard"><img src="./images/yard.jpg" alt="" /><span>Двор</span></button>
-        <button class="spot-thumb" data-spot="metro"><img src="./images/metro.jpg" alt="" /><span>Метро</span></button>
+        <button class="spot-thumb active" data-spot="stop"><img src="images/bus-stop.jpg" alt="" /><span>Остановка</span></button>
+        <button class="spot-thumb" data-spot="crossing"><img src="images/crossing.png" alt="" /><span>Переход</span></button>
+        <button class="spot-thumb" data-spot="park"><img src="images/park.jpg" alt="" /><span>Парк</span></button>
+        <button class="spot-thumb" data-spot="yard"><img src="images/yard.jpg" alt="" /><span>Двор</span></button>
+        <button class="spot-thumb" data-spot="metro"><img src="images/metro.jpg" alt="" /><span>Метро</span></button>
       </div>
     </section>
 
@@ -331,7 +333,7 @@
         <p>Россия отстаёт не на три года — на один урбанистический цикл. Вопрос не «самокаты да или нет». Вопрос: <strong>сколько ещё сезонов гипса нужно, чтобы мы скопировали то, что уже работает?</strong></p>
       </div>
       <figure class="figure-wide figure-finale">
-        <img src="./images/finale-city.jpg" alt="Город на закате" loading="lazy" />
+        <img src="images/finale-city.jpg" alt="Город на закате" loading="lazy" />
         <figcaption>Город меняется не от запретов — а от решений</figcaption>
       </figure>
     </section>
@@ -384,6 +386,6 @@
   </footer>
 
   <div class="toast" id="toast"></div>
-  <script src="./app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
