@@ -157,35 +157,43 @@ $$('.world-btn').forEach(btn => {
 });
 
 // ─── Карта конфликтов (сравнение с миром) ───
-const imgPath = (file) => new URL(`images/${file}`, document.baseURI).href;
+// Базовый путь для GitHub Pages (username.github.io/repo-name/)
+window.SITE_BASE = (function () {
+  var p = location.pathname;
+  if (p.indexOf('index.html') !== -1) p = p.substring(0, p.lastIndexOf('/') + 1);
+  else if (!p.endsWith('/')) p = p + '/';
+  return p;
+})();
+
+const asset = (file) => window.SITE_BASE + 'images/' + file;
 
 const spotData = {
   stop: {
-    img: imgPath('bus-stop.jpg'),
+    img: asset('bus-stop.jpg'),
     title: 'Узкий тротуар у остановки',
     desc: 'Пешеходы выходят из автобуса — самокат в 10 см. В Копенгагене здесь велополоса между остановкой и дорогой. У нас — общий тротуар шириной 1,5 м.',
     danger: '🔴 У нас · 🟢 В Копенгагене решено'
   },
   crossing: {
-    img: imgPath('crossing.png'),
+    img: asset('crossing.png'),
     title: 'Пешеходный переход',
     desc: 'Самокаты проскакивают между пешеходами. В Осло переходы приподняты — самокат вынужден сбросить скорость. У нас — ровный асфальт и гонка.',
     danger: '🔴 У нас · 🟢 В Осло решено'
   },
   park: {
-    img: imgPath('park.jpg'),
+    img: asset('park.jpg'),
     title: 'Парк',
     desc: 'Дети, коляски, самокаты на 25 км/ч. В Барселоне внутри суперквартала — лимит 10 км/ч и отдельная дорожка. У нас — «езда разрешена, но медленно» (никто не соблюдает).',
     danger: '🔴 У нас · 🟢 В Барселоне решено'
   },
   yard: {
-    img: imgPath('yard.jpg'),
+    img: asset('yard.jpg'),
     title: 'Двор-колодец',
     desc: 'Самокат вылетает из-за угла. В Париже дворы закрыты для транзитного движения — самокат физически не может срезать. У нас — открытый двор и столкновения каждую неделю.',
     danger: '🔴 У нас · 🟢 В Париже решено'
   },
   metro: {
-    img: imgPath('metro.jpg'),
+    img: asset('metro.jpg'),
     title: 'У станции метро',
     desc: 'Стихийная парковка перекрывает путь. В Сингапуре GPS не даст припарковать самокат вне зоны. У нас — штраф 500 ₽, который никто не боится.',
     danger: '🔴 У нас · 🟢 В Сингапуре решено'
